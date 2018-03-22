@@ -6,7 +6,7 @@
 /*   By: bmoiroud <bmoiroud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/27 15:17:23 by bmoiroud          #+#    #+#             */
-/*   Updated: 2018/01/08 15:09:47 by bmoiroud         ###   ########.fr       */
+/*   Updated: 2018/03/01 17:43:53 by bmoiroud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,29 +62,17 @@ void	ft_default_value(t_object *objs, t_rt *rt)
 	i = -1;
 	while (++i < rt->nb_obj)
 	{
-		if (objs[i].color.c == -1)
-		{
-			objs[i].color.c = 0xff << 24 | 0 << 16 | 0 << 8 | 200;
-			objs[i].color.r = objs[i].color.c & 0x00ff0000;
-			objs[i].color.g = objs[i].color.c & 0x0000ff00;
-			objs[i].color.b = objs[i].color.c & 0x000000ff;
-		}
-		if (objs[i].rot.x == 0 && objs[i].rot.y == 0 && objs[i].rot.z == 0)
-			objs[i].rot = (t_vector){1, 0, 0};
-		if (objs[i].rot.x == 0 && objs[i].rot.y == 0 && objs[i].rot.z == 0 && \
-														objs[i].type != SPHERE)
-			ft_error(2, 0);
+		objs[i].rot = (!ft_vector_len(objs[i].rot)) ? (t_vector){1, 0, 0} : \
+																	objs[i].rot;
 	}
 	i = -1;
 	while (++i < rt->nb_light)
-		if (rt->lights[i].intensity < 0)
-			rt->lights[i].intensity = INTENSITY;
+		(rt->lights[i].intensity < 0) ? rt->lights[i].intensity = INTENSITY : 0;
 	rt->eye.aspect = 1.5;
 	rt->eye.fov = FOV;
 	rt->eye.zoom = ZOOM;
-	rt->effects = 1;
-	if (ft_vector_len(rt->eye.rot) == 0.0)
-		ft_error(2, 0);
+	rt->config.effects = 1;
+	(ft_vector_len(rt->eye.rot) == 0.0) ? ft_error(2, 0) : 0;
 }
 
 int		ft_countword(char *str, char c)
@@ -96,8 +84,7 @@ int		ft_countword(char *str, char c)
 	nb = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
-			nb++;
+		(str[i] == c) ? nb++ : 0;
 		i++;
 	}
 	return (nb);

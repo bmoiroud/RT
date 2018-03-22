@@ -6,31 +6,33 @@
 /*   By: bmoiroud <bmoiroud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 15:33:59 by bmoiroud          #+#    #+#             */
-/*   Updated: 2017/12/14 16:00:18 by bmoiroud         ###   ########.fr       */
+/*   Updated: 2017/12/08 14:28:46 by bmoiroud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h.cl"
 
-static double		ft_rand(const int x)
+static unsigned int		ft_rand(const unsigned int x)
 {
-	int	value = (x << 13) ^ x;
+	unsigned int	value;
 
-	value = (value * (value * value * 15731 + 789221) + 1376312589);
-	return ((double)(value & 0x7fffffff) / 1073741824.0);
+	value = ((x ^ 61) ^ (x >> 16)) * 9;
+	value = value ^ (value << 4);
+	value *= 668265261;
+	return (value ^ (value >> 15));
 }
 
-static double		ft_rand2(const int x, const int y)
+static unsigned int		ft_rand2(const unsigned int x, const unsigned int y)
 {
-	double	value = ft_rand(x);
+	unsigned int	value = ft_rand(x);
 
-	return (ft_rand(value + y) * 850000);
+	return (ft_rand(value ^ y));
 }
 
-static double		ft_rand3(const int x, const int y, const int z)
+static unsigned int		ft_rand3(const unsigned int x, const unsigned int y, const unsigned int z)
 {
-	double	value = ft_rand(x);
+	unsigned int	value = ft_rand(x);
 
-	value = ft_rand(value + y) * 850000;
-	return (ft_rand(value + z) * 850000);
+	value = ft_rand(value ^ y);
+	return (ft_rand(value ^ z));
 }

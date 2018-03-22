@@ -9,16 +9,19 @@
 	</plane>
 	<cone>
 		<position>70,0,0</position>
-		<size>-12</size>
+		<size>12</size>
 		<orientation>0,1,0</orientation>
+		<negative>1</negative>
 	</cone>
 	<sphere>
 		<position>70,0,20</position>
-		<size>-5</size>
+		<size>5</size>
+		<negative>1</negative>
 	</sphere>
 	<cylinder>
 		<position>70,0,-20</position>
-		<size>-5</size>
+		<size>5</size>
+		<negative>1</negative>
 	</cylinder>
 	<light>
 		<position>50,10,10</position>
