@@ -3,7 +3,9 @@
 ## Project Overview
 
 This project is about creating a raytracer.
-This program has been created in C zith SDL2 and OpenCL.
+This program has been created in C with SDL2 and OpenCL.
+
+<img src='./images/img1.bmp'/>
 
 ## Installation
 
