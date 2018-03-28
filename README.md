@@ -45,6 +45,7 @@ $> ./rt --client <server ip>
 | 2          | show/hide focus plane  |
 | Space      | move up                |
 | CTRL       | move down              |
+| Shift      | speed up               |
 | esc        | exit                   |
 
 ## Features
