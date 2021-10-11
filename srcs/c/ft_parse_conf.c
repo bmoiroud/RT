@@ -37,7 +37,7 @@ void		ft_parse_conf(t_config *cfg, int fd, int set[9], char *line)
 		else if (ft_strcmp(line, "ambient_light:") == 0 && !set[1])
 			set[1] = ft_get_double(&cfg->ambient, fd);
 		else if (ft_strcmp(line, "aperture:") == 0 && !set[2])
-			set[2] = ft_get_double(&cfg->aperture, fd);
+			set[2] = ft_fpow(ft_get_double(&cfg->aperture, fd), 2);
 		else if (ft_strcmp(line, "anti_aliasing:") == 0 && !set[3])
 			set[3] = ft_get_int(&cfg->aa, fd);
 		else if (ft_strcmp(line, "depth_of_field:") == 0 && !set[4])

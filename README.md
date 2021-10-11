@@ -1,9 +1,9 @@
 # RT
 
-## Project Overview
+## Description
 
-This project is about creating a raytracer.
-This program has been created in C with SDL2 and OpenCL.
+Le but de ce projet est de créer un raytracer de zéro.
+Ce programme a été réalisé en C avec la librairie SDL2 et OpenCL.
 
 <img src='./images/img1.bmp'/>
 
@@ -13,48 +13,47 @@ This program has been created in C with SDL2 and OpenCL.
 $> git clone https://github.com/bmoiroud/RT.git && cd RT && make
 ```
 
-## Usage
+## Utilisation
 
-### Start it normally
+### Lancement classique
 ``` bash
 $> ./rt <scene.xml>
 ```
-#### using clustering:
-start it as a server:
+### Utilisation du calcul en cluster:
+lancer le programme en mode serveur sur un premier ordinateur:
 ``` bash
-$> ./rt <scene.xml> --server <number of client>
+$> ./rt <scene.xml> --server <nombre de clients>
 ```
 
-start it as a client:
+lancement en mode client:
 ``` bash
-$> ./rt --client <server ip>
+$> ./rt --client <ip serveur>
 ```
 
-| Key        | Action                 |
+| Touche     | Action                 |
 |:----------:|:-----------------------|
-| W          | move forward           |
-| S          | move backward          |
-| A          | move left              |
-| D          | move right             |
-| Q          | turn left              |
-| E          | turn right             |
-| arrow up   | look up                |
-| arrow down | look down              |
-| H          | show/hide help panel   |
-| I          | show/hide info panel   |
-| P          | take a screenshot      |
-| 1          | enable/disable effects |
-| 2          | show/hide focus plane  |
-| Space      | move up                |
-| CTRL       | move down              |
-| Shift      | speed up               |
-| esc        | exit                   |
+| W          | avancer                  |
+| S          | reculer                  |
+| A          | gauche                   |
+| D          | droite                   |
+| Q          | rotation à gauche        |
+| E          | rotation à droite        |
+| flèche haute | regarder en haut       |
+| flèche basse | regarder en bas        |
+| H          | afficher / cacher l'aide |
+| I          | afficher / cacher infos  |
+| P          | capture d'écran          |
+| 1          | activer / désactiver effets |
+| 2          | afficher / cacher plan de focus |
+| Space      | monter                   |
+| CTRL       | descendre                |
+| Shift      | accélération             |
+| esc        | quitter                  |
 
-## Features
-* Using the SDL2 graphics library
-* OpenCL acceleration
+## Fonctionnalités
+* Accélération OpenCL
 * Clustering
-* Depth of field
+* Profondeur de champ
 * Anti-aliasing
-* procedural textures
-* bump mapping
+* Textures procédurales
+* Bump mapping
